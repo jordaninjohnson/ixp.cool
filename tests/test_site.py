@@ -79,6 +79,19 @@ class LandingPageTests(unittest.TestCase):
         self.assertIn("https://github.com/jordaninjohnson/ixp.cool", page.links)
         self.assertEqual(HOME.count('target="_blank"'), HOME.count('rel="noopener noreferrer"'))
 
+    def test_search_discovery_and_current_content_milestone(self):
+        import xml.etree.ElementTree as ET
+
+        robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
+        self.assertIn("Sitemap: https://ixp.cool/sitemap.xml", robots)
+        sitemap = ET.parse(ROOT / "sitemap.xml")
+        ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+        locations = [node.text for node in sitemap.findall("s:url/s:loc", ns)]
+        self.assertEqual(locations, ["https://ixp.cool/"])
+        self.assertIn("draft content metadata", HOME)
+        self.assertNotIn("next</span><span>content metadata", HOME)
+        self.assertNotIn('og:title" content="IXP — Open-source', HOME)
+
     def test_archived_confirmation_is_honest(self):
         self.assertIn('name="robots" content="noindex"', THANKS)
         self.assertIn("no active contact", THANKS.lower())

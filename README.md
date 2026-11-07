@@ -8,8 +8,8 @@ This public repository hosts the static landing page for [IXP](https://ixp.cool/
 
 - PostgreSQL 17, two migrations, synthetic seed data, SQL contract tests.
 - FastAPI application package `0.2.0.dev0`; organization/building/location/logical screen create/list/read operations and screen-count reporting.
-- Local React/TypeScript admin, with inventory hierarchy creation/browsing and counts. The **v0.3 milestone remains in progress**.
-- No authentication/RBAC, device provisioning, playback, content management, scheduler, production deployment, release tag, or public license.
+- Local React/TypeScript admin, with inventory hierarchy creation/browsing, screen counts, and draft content metadata management. The **v0.3 milestone remains in progress**.
+- No authentication/RBAC, device provisioning, playback, media-file management, scheduler, production deployment, release tag, or public license.
 - The main source repository is **private**. The public website repository is not equivalent to a publicly released application.
 - Never connect this static site to the unauthenticated local API or publish real inventory data.
 
@@ -25,7 +25,7 @@ python3 -m unittest discover -s tests -v
 
 Changes to the public status must be cross-checked against actual merged application code, current tests, `ROADMAP.md`, and `docs/STATUS.md`. **Do not advance milestone labels based only on open pull requests**. Document the verification date in the page and update this README when capabilities change.
 
-The existing domain configuration in `CNAME` must be preserved for GitHub Pages. `thank-you.html` is an archival entry point; there is no active signup or message form on the website.
+The existing domain configuration in `CNAME` must be preserved for GitHub Pages. Keep `robots.txt` and `sitemap.xml` consistent with the canonical URL and do not index archived/unused pages. `thank-you.html` is an archival entry point; there is no active signup or message form on the website.
 
 ## Content and accessibility conventions
 

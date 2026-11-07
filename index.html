@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="IXP is a local-first digital signage operations project with working PostgreSQL, FastAPI and React inventory prototypes." />
-  <meta property="og:title" content="IXP — Open-source software for real-world operations" />
+  <meta name="description" content="IXP is a local-first digital signage operations project with working PostgreSQL, FastAPI and React inventory and draft metadata prototypes." />
+  <meta property="og:title" content="IXP — Software for real-world screens" />
   <meta property="og:description" content="Explore the working local IXP inventory prototype, honest limitations, and development roadmap." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ixp.cool" />
@@ -511,8 +511,8 @@
             <div class="terminal-line"><span>API</span><span>0.2.0.dev0 · FastAPI</span></div>
             <div class="terminal-line"><span>admin</span><span class="accent">v0.3 milestone in progress</span></div>
             <div class="terminal-line"><span>storage</span><span>PostgreSQL 17</span></div>
-            <div class="terminal-line"><span>working</span><span>hierarchy + screen counts</span></div>
-            <div class="terminal-line"><span>next</span><span>content metadata</span></div>
+            <div class="terminal-line"><span>working</span><span>inventory + draft metadata</span></div>
+            <div class="terminal-line"><span>next</span><span>content workflows</span></div>
             <div class="terminal-line"><span>updated</span><span>November 2026</span></div>
           </div>
         </aside>
@@ -557,12 +557,13 @@
         </div>
         <div class="capability-grid">
           <article class="card capability">
-            <div class="number">WORKING LOCALLY</div><h3>Inventory foundations</h3>
+            <div class="number">WORKING LOCALLY</div><h3>Inventory and content foundations</h3>
             <ul>
               <li>PostgreSQL schema, fictional sample data, and database contract tests</li>
               <li>FastAPI creation and browsing for organizations, buildings, locations and logical screens</li>
               <li>React/TypeScript admin interface for the inventory hierarchy</li>
               <li>Organization-wide screen inventory and per-building status counts</li>
+              <li>Organization-scoped draft content metadata, without uploading or playing media</li>
             </ul>
           </article>
           <article class="card capability">
@@ -570,7 +571,7 @@
             <ul>
               <li>Authentication, permissions and role-based access control</li>
               <li>Physical device provisioning and actual display playback</li>
-              <li>Content management, scheduling and offline behavior</li>
+              <li>Media storage, playlists, scheduling and offline behavior</li>
               <li>Production installation, recovery procedures and real-world pilots</li>
             </ul>
           </article>
@@ -587,7 +588,7 @@
           <div class="roadmap-main">
             <div class="tag">Active milestone</div>
             <h3>v0.3 — Admin Interface</h3>
-            <p>The local interface already creates and browses the inventory hierarchy. The next slice is content metadata management, followed by later security and playback milestones.</p>
+            <p>The local interface creates and browses inventory and draft content metadata. The broader content workflow, security, and player capabilities remain under development.</p>
             <p>Built on <strong>PostgreSQL 17, Python/FastAPI, React, and TypeScript</strong>. Tested in CI; no published product release yet.</p>
           </div>
           <div class="roadmap-list" aria-label="IXP development milestones">

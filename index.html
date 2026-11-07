@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="IXP is an open-source digital signage and building communication platform being built in public." />
-  <meta property="og:title" content="IXP — Open-source software for real-world operations" />
+  <meta name="description" content="IXP is a digital-signage platform in development. Explore its working inventory foundation, screen reports, and path toward an open-source release." />
+  <meta property="og:title" content="IXP — Screen inventory for real-world operations" />
   <meta property="og:description" content="A digital signage and building communication platform being built from the data foundation up." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ixp.cool" />
-  <title>IXP — Building in Public</title>
+  <link rel="canonical" href="https://ixp.cool/" />
+  <title>IXP — A clearer picture of your screens</title>
 
   <style>
     :root {
@@ -60,6 +61,12 @@
     }
 
     a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--accent-3); outline-offset: 5px; }
+    .skip-link { position: absolute; top: -100px; left: 16px; background: #06101d; padding: 12px; z-index: 20; }
+    .skip-link:focus { top: 12px; }
+    .scope-note { border-left: 3px solid var(--accent); margin-top: 24px; padding: 16px 24px; background: var(--panel); }
+    .scope-note p { color: var(--muted); margin-bottom: 0; }
+    section { scroll-margin-top: 24px; }
 
     .shell {
       width: min(calc(100% - 32px), var(--max));
@@ -431,7 +438,9 @@
 
     @media (max-width: 620px) {
       .nav { align-items: flex-start; padding-top: 20px; }
-      .nav-links .nav-link { display: none; }
+      .nav { flex-wrap: wrap; }
+      .nav-links { justify-content: flex-start; gap: 4px; }
+      .nav-link { padding: 8px; }
       h1 { font-size: clamp(3rem, 18vw, 5rem); }
       .hero { gap: 36px; padding-top: 52px; }
       .terminal-line { grid-template-columns: 82px 1fr; font-size: 0.8rem; }
@@ -447,6 +456,7 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <div class="shell">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="IXP home">
@@ -460,6 +470,7 @@
       </a>
 
       <div class="nav-links">
+        <a class="nav-link" href="#workflow">Workflow</a>
         <a class="nav-link" href="#why">Why IXP</a>
         <a class="nav-link" href="#roadmap">Roadmap</a>
         <a class="button" href="https://github.com/ixp-tech" target="_blank" rel="noreferrer">GitHub ↗</a>
@@ -469,18 +480,18 @@
     <main id="top">
       <section class="hero">
         <div>
-          <div class="eyebrow"><span class="pulse"></span> Building in public · pre-v0.1</div>
-          <h1><span class="gradient-text">Software for screens that live in the real world.</span></h1>
+          <div class="eyebrow"><span class="pulse"></span> In development · Inventory foundation</div>
+          <h1><span class="gradient-text">Every screen.<br> A place.<br> A purpose.</span></h1>
           <p class="hero-copy">
-            <strong>IXP</strong> is an open-source digital signage and building communication platform being built from the foundation up — with reliability, clear architecture, and real-world operations in mind.
+            <strong>IXP</strong> is becoming a practical digital-signage platform for the people who look after real buildings. Start with a clear inventory of organizations, buildings, locations, and screens. Build reliable communication on that foundation.
           </p>
 
           <div class="actions">
-            <a class="button primary" href="https://github.com/ixp-tech" target="_blank" rel="noreferrer">Follow the build on GitHub ↗</a>
-            <a class="button" href="#roadmap">See what we're building</a>
+            <a class="button primary" href="https://github.com/ixp-tech" target="_blank" rel="noreferrer">Meet the project ↗</a>
+            <a class="button" href="#workflow">Explore the workflow</a>
           </div>
 
-          <p class="microcopy">No fake launch. No giant feature list. Just a real project taking shape one release at a time.</p>
+          <p class="microcopy">Working local prototype. Not a hosted service. Playback and scheduling are still ahead.</p>
         </div>
 
         <aside class="terminal" aria-label="Current IXP build status">
@@ -491,15 +502,24 @@
           <div class="terminal-body">
             <div class="terminal-line"><span>project</span><span>IXP</span></div>
             <div class="terminal-line"><span>status</span><span class="green">building</span></div>
-            <div class="terminal-line"><span>version</span><span>pre-v0.1</span></div>
-            <div class="terminal-line"><span>focus</span><span class="accent">PostgreSQL + SQL</span></div>
-            <div class="terminal-line"><span>current</span><span>Data Foundation</span></div>
-            <div class="terminal-line"><span>next</span><span>REST API</span></div>
-            <div class="terminal-line"><span>community</span><span>assembling...</span></div>
+            <div class="terminal-line"><span>version</span><span>0.2.0.dev0 API</span></div>
+            <div class="terminal-line"><span>focus</span><span class="accent">Inventory + reporting</span></div>
+            <div class="terminal-line"><span>current</span><span>React admin + FastAPI</span></div>
+            <div class="terminal-line"><span>next</span><span>Content management</span></div>
+            <div class="terminal-line"><span>community</span><span>Private development</span></div>
           </div>
         </aside>
       </section>
 
+      <section class="section" id="workflow" aria-labelledby="workflow-title">
+        <div class="section-head"><div><div class="eyebrow">The working foundation</div><h2 id="workflow-title">From a campus<br>to a single screen.</h2></div><p>A useful inventory answers three questions: where does a screen belong, how is it configured, and where are the gaps?</p></div>
+        <div class="grid-3">
+          <article class="card"><div class="number">01 / ORGANIZE</div><h3>Give every screen a home</h3><p>Create an organization, add buildings and locations, then register logical screens with their orientation and dimensions.</p></article>
+          <article class="card"><div class="number">02 / INSPECT</div><h3>Follow the hierarchy</h3><p>Browse the React admin from organization to location. See configured screen records and navigate back through their parents.</p></article>
+          <article class="card"><div class="number">03 / UNDERSTAND</div><h3>Find inventory gaps</h3><p>Review screen counts by building and status, including empty buildings. Export CSV or JSON using the local reporting command.</p></article>
+        </div>
+        <div class="scope-note"><strong>What these records mean</strong><p>“Active” describes a configured logical screen. It does not confirm that a device is online or playing content. The development API has no authentication; use fictional data on localhost.</p></div>
+      </section>
       <section class="section" id="why">
         <div class="section-head">
           <div>
@@ -514,8 +534,8 @@
         <div class="grid-3">
           <article class="card">
             <div class="number">01 / OPEN</div>
-            <h3>Open from the core</h3>
-            <p>The goal is useful open-source software that people can understand, run, inspect, improve, and eventually contribute to.</p>
+            <h3>A path toward open source</h3>
+            <p>The goal is software people can understand, run, and improve. The product repository is currently private; an open-source license and public release are still to come.</p>
           </article>
 
           <article class="card">
@@ -544,19 +564,19 @@
         <div class="roadmap">
           <div class="roadmap-main">
             <div class="tag">Now building</div>
-            <h3>v0.1 — Data Foundation</h3>
+            <h3>v0.3 — Management workspace</h3>
             <p>
-              The first release is focused on the relational model: organizations, buildings, locations, screens, devices, content, playlists, schedules, users, roles, and device health history.
+              The local admin creates and browses the full inventory hierarchy. Organization-scoped reports include buildings with no screens, so gaps remain visible.
             </p>
             <p>
-              The current technical focus is deliberately narrow: <strong>PostgreSQL, SQL, constraints, relationships, seed data, and reproducible database setup.</strong>
+              The data foundation and REST API are implemented. <strong>Content metadata is the next management milestone.</strong> Authentication, playback, and production operations remain planned.
             </p>
-            <div class="progress" aria-label="Early roadmap progress"><span></span></div>
+            <p class="microcopy">Development milestones, not published releases. Updated November 6, 2026.</p>
           </div>
 
-          <div class="roadmap-list" aria-label="Upcoming IXP releases">
-            <div class="roadmap-item"><code>v0.2</code><span>REST API foundation</span></div>
-            <div class="roadmap-item"><code>v0.3</code><span>Admin interface</span></div>
+          <div class="roadmap-list" aria-label="IXP development milestones">
+            <div class="roadmap-item"><code>v0.2</code><span>REST API foundation · implemented</span></div>
+            <div class="roadmap-item"><code>v0.3</code><span>Admin interface · in progress</span></div>
             <div class="roadmap-item"><code>v0.4</code><span>Authentication + RBAC</span></div>
             <div class="roadmap-item"><code>v0.5</code><span>Display player</span></div>
             <div class="roadmap-item"><code>v0.6+</code><span>Scheduling, deployment, observability, pilot</span></div>
@@ -569,7 +589,7 @@
           <div class="eyebrow">Early is good</div>
           <h2 style="margin-top: 18px;">Want to watch IXP become real?</h2>
           <p>
-            The project is still at the foundation stage. That means there is room to shape how it works, how it feels, and what problems it should actually solve. If you're into open source, digital signage, AV, facilities, devices, operations, or just useful software — you're welcome here.
+            IXP is built by Jordan Johnson, drawing on hands-on facilities and campus signage experience. The product is in private development. Follow the public organization or meet the builder to learn about its direction.
           </p>
           <div class="actions">
             <a class="button primary" href="https://github.com/ixp-tech" target="_blank" rel="noreferrer">Visit IXP on GitHub ↗</a>
@@ -580,7 +600,7 @@
     </main>
 
     <footer>
-      <span>© <span id="year">2026</span> IXP LLC · Built in public.</span>
+      <span>© <span id="year">2026</span> IXP · Built with real operations in mind.</span>
       <span><a href="https://github.com/ixp-tech" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://github.com/jordaninjohnson" target="_blank" rel="noreferrer">Builder</a></span>
     </footer>
   </div>

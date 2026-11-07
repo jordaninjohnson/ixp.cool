@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="IXP is an open-source digital signage and building communication platform being built in public." />
+  <meta name="description" content="IXP is a local-first digital signage operations project with working PostgreSQL, FastAPI and React inventory prototypes." />
   <meta property="og:title" content="IXP — Open-source software for real-world operations" />
-  <meta property="og:description" content="A digital signage and building communication platform being built from the data foundation up." />
+  <meta property="og:description" content="Explore the working local IXP inventory prototype, honest limitations, and development roadmap." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ixp.cool" />
-  <title>IXP — Building in Public</title>
+  <link rel="canonical" href="https://ixp.cool/" />
+  <meta name="color-scheme" content="dark" />
+  <title>IXP — Software for Real-World Screens</title>
 
   <style>
     :root {
@@ -60,6 +62,10 @@
     }
 
     a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .skip-link { position: absolute; top: -80px; left: 16px; z-index: 10; padding: 10px 16px; border-radius: 10px; background: #e8faff; color: #06101d; font-weight: 700; }
+    .skip-link:focus { top: 12px; }
+    [id] { scroll-margin-top: 32px; }
 
     .shell {
       width: min(calc(100% - 32px), var(--max));
@@ -420,12 +426,21 @@
     footer a { color: #a9bfca; text-decoration: none; }
     footer a:hover { color: white; }
 
+    .capability-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+    .capability h3 { margin: 0 0 12px; font-size: 1.35rem; }
+    .capability ul { margin: 0; padding-left: 21px; color: var(--muted); }
+    .capability li { margin: 8px 0; }
+    .capability li::marker { color: var(--accent); }
+    .status-note { margin-top: 18px; padding: 14px 18px; border: 1px solid var(--line-strong); border-radius: 14px; background: rgba(116,228,255,0.05); color: #d4e7f1; }
+    .status-note strong { color: white; }
+    .roadmap-item .state { margin-left: auto; font-size: 0.76rem; color: #9db2bd; white-space: nowrap; }
+    .roadmap-item .state.active { color: var(--accent-3); }
     @media (max-width: 900px) {
       .hero,
       .roadmap { grid-template-columns: 1fr; }
       .hero { padding-top: 64px; }
       .terminal { max-width: 680px; }
-      .grid-3 { grid-template-columns: 1fr; }
+      .grid-3, .capability-grid { grid-template-columns: 1fr; }
       .section-head { align-items: start; flex-direction: column; }
     }
 
@@ -447,9 +462,10 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
   <div class="shell">
     <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="IXP home">
+      <a class="brand" href="#main" aria-label="IXP home">
         <span class="mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M5 5h5v5H5zM14 5h5v5h-5zM5 14h5v5H5z" stroke="currentColor" stroke-width="1.5"/>
@@ -461,26 +477,27 @@
 
       <div class="nav-links">
         <a class="nav-link" href="#why">Why IXP</a>
+        <a class="nav-link" href="#capabilities">What works</a>
         <a class="nav-link" href="#roadmap">Roadmap</a>
-        <a class="button" href="https://github.com/ixp-tech" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a class="button" href="https://github.com/ixp-tech" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
     </nav>
 
-    <main id="top">
+    <main id="main">
       <section class="hero">
         <div>
-          <div class="eyebrow"><span class="pulse"></span> Building in public · pre-v0.1</div>
+          <div class="eyebrow"><span class="pulse"></span> Local development · v0.3 admin milestone</div>
           <h1><span class="gradient-text">Software for screens that live in the real world.</span></h1>
           <p class="hero-copy">
-            <strong>IXP</strong> is an open-source digital signage and building communication platform being built from the foundation up — with reliability, clear architecture, and real-world operations in mind.
+            <strong>IXP</strong> is an early-stage digital signage operations platform. The working local prototype helps teams organize organizations, buildings, locations, and screens — with clear architecture and real-world operations in mind.
           </p>
 
           <div class="actions">
-            <a class="button primary" href="https://github.com/ixp-tech" target="_blank" rel="noreferrer">Follow the build on GitHub ↗</a>
-            <a class="button" href="#roadmap">See what we're building</a>
+            <a class="button primary" href="https://github.com/ixp-tech" target="_blank" rel="noopener noreferrer">Follow the build on GitHub ↗</a>
+            <a class="button" href="#capabilities">See what works today</a>
           </div>
 
-          <p class="microcopy">No fake launch. No giant feature list. Just a real project taking shape one release at a time.</p>
+          <p class="microcopy">Not a hosted service or public product release. The core application repository is private while development continues.</p>
         </div>
 
         <aside class="terminal" aria-label="Current IXP build status">
@@ -490,12 +507,13 @@
           </div>
           <div class="terminal-body">
             <div class="terminal-line"><span>project</span><span>IXP</span></div>
-            <div class="terminal-line"><span>status</span><span class="green">building</span></div>
-            <div class="terminal-line"><span>version</span><span>pre-v0.1</span></div>
-            <div class="terminal-line"><span>focus</span><span class="accent">PostgreSQL + SQL</span></div>
-            <div class="terminal-line"><span>current</span><span>Data Foundation</span></div>
-            <div class="terminal-line"><span>next</span><span>REST API</span></div>
-            <div class="terminal-line"><span>community</span><span>assembling...</span></div>
+            <div class="terminal-line"><span>status</span><span class="green">local prototype</span></div>
+            <div class="terminal-line"><span>API</span><span>0.2.0.dev0 · FastAPI</span></div>
+            <div class="terminal-line"><span>admin</span><span class="accent">v0.3 milestone in progress</span></div>
+            <div class="terminal-line"><span>storage</span><span>PostgreSQL 17</span></div>
+            <div class="terminal-line"><span>working</span><span>hierarchy + screen counts</span></div>
+            <div class="terminal-line"><span>next</span><span>content metadata</span></div>
+            <div class="terminal-line"><span>updated</span><span>November 2026</span></div>
           </div>
         </aside>
       </section>
@@ -515,7 +533,7 @@
           <article class="card">
             <div class="number">01 / OPEN</div>
             <h3>Open from the core</h3>
-            <p>The goal is useful open-source software that people can understand, run, inspect, improve, and eventually contribute to.</p>
+            <p>The goal is useful, understandable software with a path to open-source publication. The application source and public license terms have not been released yet.</p>
           </article>
 
           <article class="card">
@@ -532,34 +550,53 @@
         </div>
       </section>
 
+      <section class="section" id="capabilities">
+        <div class="section-head">
+          <div><div class="eyebrow">Verified scope</div><h2>Real progress. Clear boundaries.</h2></div>
+          <p>IXP is a developer-run prototype with automated tests, not yet software ready to operate public-facing displays.</p>
+        </div>
+        <div class="capability-grid">
+          <article class="card capability">
+            <div class="number">WORKING LOCALLY</div><h3>Inventory foundations</h3>
+            <ul>
+              <li>PostgreSQL schema, fictional sample data, and database contract tests</li>
+              <li>FastAPI creation and browsing for organizations, buildings, locations and logical screens</li>
+              <li>React/TypeScript admin interface for the inventory hierarchy</li>
+              <li>Organization-wide screen inventory and per-building status counts</li>
+            </ul>
+          </article>
+          <article class="card capability">
+            <div class="number">NOT RELEASED</div><h3>Before real deployments</h3>
+            <ul>
+              <li>Authentication, permissions and role-based access control</li>
+              <li>Physical device provisioning and actual display playback</li>
+              <li>Content management, scheduling and offline behavior</li>
+              <li>Production installation, recovery procedures and real-world pilots</li>
+            </ul>
+          </article>
+        </div>
+        <p class="status-note"><strong>Security boundary:</strong> IXP currently has no API authentication. Use fictional data on loopback only. The application repository is private, and no official public license or product release has been issued.</p>
+      </section>
+
       <section class="section" id="roadmap">
         <div class="section-head">
-          <div>
-            <div class="eyebrow">Roadmap</div>
-            <h2>One useful layer at a time.</h2>
-          </div>
-          <p>The roadmap is intentionally small. Each release should leave behind working software, tests, documentation, and a clearer understanding of the system.</p>
+          <div><div class="eyebrow">Roadmap</div><h2>One useful layer at a time.</h2></div>
+          <p>Milestones reflect engineering scope, not published releases. Security and operator reliability come before live deployment.</p>
         </div>
-
         <div class="roadmap">
           <div class="roadmap-main">
-            <div class="tag">Now building</div>
-            <h3>v0.1 — Data Foundation</h3>
-            <p>
-              The first release is focused on the relational model: organizations, buildings, locations, screens, devices, content, playlists, schedules, users, roles, and device health history.
-            </p>
-            <p>
-              The current technical focus is deliberately narrow: <strong>PostgreSQL, SQL, constraints, relationships, seed data, and reproducible database setup.</strong>
-            </p>
-            <div class="progress" aria-label="Early roadmap progress"><span></span></div>
+            <div class="tag">Active milestone</div>
+            <h3>v0.3 — Admin Interface</h3>
+            <p>The local interface already creates and browses the inventory hierarchy. The next slice is content metadata management, followed by later security and playback milestones.</p>
+            <p>Built on <strong>PostgreSQL 17, Python/FastAPI, React, and TypeScript</strong>. Tested in CI; no published product release yet.</p>
           </div>
-
-          <div class="roadmap-list" aria-label="Upcoming IXP releases">
-            <div class="roadmap-item"><code>v0.2</code><span>REST API foundation</span></div>
-            <div class="roadmap-item"><code>v0.3</code><span>Admin interface</span></div>
-            <div class="roadmap-item"><code>v0.4</code><span>Authentication + RBAC</span></div>
-            <div class="roadmap-item"><code>v0.5</code><span>Display player</span></div>
-            <div class="roadmap-item"><code>v0.6+</code><span>Scheduling, deployment, observability, pilot</span></div>
+          <div class="roadmap-list" aria-label="IXP development milestones">
+            <div class="roadmap-item"><code>v0.1</code><span>Database foundation</span><span class="state">Implemented</span></div>
+            <div class="roadmap-item"><code>v0.2</code><span>REST API foundation</span><span class="state">Implemented; unreleased</span></div>
+            <div class="roadmap-item"><code>v0.3</code><span>Admin inventory + content</span><span class="state active">In progress</span></div>
+            <div class="roadmap-item"><code>v0.4</code><span>Authentication + RBAC</span><span class="state">Planned</span></div>
+            <div class="roadmap-item"><code>v0.5</code><span>Display player</span><span class="state">Planned</span></div>
+            <div class="roadmap-item"><code>v0.6+</code><span>Scheduling, deployment, operations, pilot</span><span class="state">Planned</span></div>
           </div>
         </div>
       </section>
@@ -569,11 +606,11 @@
           <div class="eyebrow">Early is good</div>
           <h2 style="margin-top: 18px;">Want to watch IXP become real?</h2>
           <p>
-            The project is still at the foundation stage. That means there is room to shape how it works, how it feels, and what problems it should actually solve. If you're into open source, digital signage, AV, facilities, devices, operations, or just useful software — you're welcome here.
+            The data, API, and local admin prototype are taking shape. Follow along as security, licensing, and an open contribution process are prepared.
           </p>
           <div class="actions">
-            <a class="button primary" href="https://github.com/ixp-tech" target="_blank" rel="noreferrer">Visit IXP on GitHub ↗</a>
-            <a class="button" href="https://github.com/jordaninjohnson" target="_blank" rel="noreferrer">Meet the builder ↗</a>
+            <a class="button primary" href="https://github.com/jordaninjohnson/ixp.cool" target="_blank" rel="noopener noreferrer">View the public website source ↗</a>
+            <a class="button" href="https://github.com/jordaninjohnson" target="_blank" rel="noopener noreferrer">Meet the builder ↗</a>
           </div>
         </div>
       </section>
@@ -581,7 +618,7 @@
 
     <footer>
       <span>© <span id="year">2026</span> IXP LLC · Built in public.</span>
-      <span><a href="https://github.com/ixp-tech" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://github.com/jordaninjohnson" target="_blank" rel="noreferrer">Builder</a></span>
+      <span><a href="https://github.com/ixp-tech" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://github.com/jordaninjohnson" target="_blank" rel="noopener noreferrer">Builder</a></span>
     </footer>
   </div>
 

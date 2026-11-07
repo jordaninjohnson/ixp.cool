@@ -1,103 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You | IXP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#07111f">
+  <title>Project Updates | IXP</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: radial-gradient(ellipse at center, #1a1a2e, #0f0c29);
-      overflow: hidden;
-      color: #ffffff;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: fadeIn 1s ease-out;
-    }
-
-    p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      animation: fadeIn 1.5s ease-out;
-    }
-
-    a {
-      background: #0ff;
-      color: #000;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s ease, transform 0.3s ease;
-      animation: fadeIn 2s ease-out;
-    }
-
-    a:hover {
-      background: #00cccc;
-      transform: scale(1.05);
-    }
-
-    .stars {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: transparent;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      animation: twinkle 2s infinite ease-in-out;
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.2; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; color: #effaff;
+      background: radial-gradient(circle at 20% 10%, rgba(116,228,255,.14), transparent 30rem), #06101d; }
+    main { width: min(100%, 620px); border: 1px solid rgba(165,229,255,.26); border-radius: 24px;
+      padding: clamp(24px, 6vw, 48px); background: #102237; }
+    .eyebrow { color: #74e4ff; text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; font-weight: 800; }
+    h1 { margin: 16px 0; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.1; letter-spacing: -.045em; }
+    p { color: #b9d0de; font-size: 1.08rem; line-height: 1.65; }
+    a { display: inline-block; margin-top: 12px; padding: 12px 20px; color: #05121a; background: #8feaff;
+      border-radius: 999px; font-weight: 800; text-decoration: none; }
+    a:hover { background: #c3f4ff; }
+    a:focus-visible { outline: 3px solid white; outline-offset: 4px; }
   </style>
 </head>
 <body>
-  <div class="stars" id="stars"></div>
-
-  <h1>Thank You!</h1>
-  <p>Your message has been sent. We'll get back to you soon.</p>
-  <a href="/">Back to Home</a>
-
-  <script>
-    // Create random stars
-    const stars = document.getElementById('stars');
-    for (let i = 0; i < 100; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.left = `${Math.random() * 100}%`;
-      star.style.animationDuration = `${1 + Math.random() * 2}s`;
-      stars.appendChild(star);
-    }
-  </script>
+  <main>
+    <div class="eyebrow">IXP · Project updates</div>
+    <h1>We're building IXP one verified milestone at a time.</h1>
+    <p>This is an older page, not a message confirmation. There is no active contact or signup form on this website, and visiting this page does not send a message or subscribe you to updates.</p>
+    <p>Visit the main website for the current development status and public project links.</p>
+    <a href="/">Return to IXP</a>
+  </main>
 </body>
 </html>

@@ -446,7 +446,9 @@
 
     @media (max-width: 620px) {
       .nav { align-items: flex-start; padding-top: 20px; }
-      .nav-links .nav-link { display: none; }
+      .nav { flex-wrap: wrap; }
+      .nav-links { justify-content: flex-start; gap: 4px; }
+      .nav-link { padding: 8px; }
       h1 { font-size: clamp(3rem, 18vw, 5rem); }
       .hero { gap: 36px; padding-top: 52px; }
       .terminal-line { grid-template-columns: 82px 1fr; font-size: 0.8rem; }
@@ -476,6 +478,7 @@
       </a>
 
       <div class="nav-links">
+        <a class="nav-link" href="#workflow">Workflow</a>
         <a class="nav-link" href="#why">Why IXP</a>
         <a class="nav-link" href="#capabilities">What works</a>
         <a class="nav-link" href="#roadmap">Roadmap</a>
@@ -518,6 +521,15 @@
         </aside>
       </section>
 
+      <section class="section" id="workflow" aria-labelledby="workflow-title">
+        <div class="section-head"><div><div class="eyebrow">The working foundation</div><h2 id="workflow-title">From a campus<br>to a single screen.</h2></div><p>A useful inventory answers three questions: where does a screen belong, how is it configured, and where are the gaps?</p></div>
+        <div class="grid-3">
+          <article class="card"><div class="number">01 / ORGANIZE</div><h3>Give every screen a home</h3><p>Create an organization, add buildings and locations, then register logical screens with their orientation and dimensions.</p></article>
+          <article class="card"><div class="number">02 / INSPECT</div><h3>Follow the hierarchy</h3><p>Browse the React admin from organization to location. See configured screen records and navigate back through their parents.</p></article>
+          <article class="card"><div class="number">03 / UNDERSTAND</div><h3>Find inventory gaps</h3><p>Review screen counts by building and status, including empty buildings. Export CSV or JSON using the local reporting command.</p></article>
+        </div>
+        <div class="scope-note"><strong>What these records mean</strong><p>“Active” describes a configured logical screen. It does not confirm that a device is online or playing content. The development API has no authentication; use fictional data on localhost.</p></div>
+      </section>
       <section class="section" id="why">
         <div class="section-head">
           <div>

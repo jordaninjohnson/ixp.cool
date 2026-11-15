@@ -92,6 +92,25 @@ class LandingPageTests(unittest.TestCase):
         self.assertNotIn("next</span><span>content metadata", HOME)
         self.assertNotIn('og:title" content="IXP — Open-source', HOME)
 
+    def test_screen_status_and_public_faq_are_truthful(self):
+        self.assertIn("status-only logical-screen edits", HOME)
+        self.assertIn("status · drafts", HOME)
+        self.assertIn('id="questions"', HOME)
+        self.assertIn("Can I download and deploy IXP today?", HOME)
+        self.assertIn("Is IXP already open source?", HOME)
+        self.assertIn("Do screen statuses show whether displays are online?", HOME)
+        self.assertIn('<details class="question">', HOME)
+        self.assertIn(".question summary:focus-visible", HOME)
+        self.assertIn("14 Nov 2026", HOME)
+        self.assertNotIn("© <span id=\"year\">2026</span> IXP LLC", HOME)
+        for disallowed in ("ixp-cms", "ixp-player", "discord.gg/your-invite", "MIT License"):
+            self.assertNotIn(disallowed, HOME)
+
+    def test_public_navigation_reaches_faq(self):
+        self.assertIn("#questions", self.page.links)
+        self.assertIn("https://github.com/ixp-tech", self.page.links)
+        self.assertIn("https://github.com/jordaninjohnson/ixp.cool", self.page.links)
+
     def test_archived_confirmation_is_honest(self):
         self.assertIn('name="robots" content="noindex"', THANKS)
         self.assertIn("no active contact", THANKS.lower())

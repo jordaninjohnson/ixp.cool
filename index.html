@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="IXP is a local-first digital signage operations project with working PostgreSQL, FastAPI and React inventory and draft metadata prototypes." />
+  <meta name="description" content="IXP is building practical digital signage operations software. Explore its local inventory prototype, verified milestones, clear limitations and open-source plans." />
   <meta property="og:title" content="IXP — Software for real-world screens" />
-  <meta property="og:description" content="Explore the working local IXP inventory prototype, honest limitations, and development roadmap." />
+  <meta property="og:description" content="See what IXP can do today, what is still planned, and why dependable screen operations matter." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ixp.cool" />
   <link rel="canonical" href="https://ixp.cool/" />
@@ -431,7 +431,14 @@
     .capability ul { margin: 0; padding-left: 21px; color: var(--muted); }
     .capability li { margin: 8px 0; }
     .capability li::marker { color: var(--accent); }
-    .status-note { margin-top: 18px; padding: 14px 18px; border: 1px solid var(--line-strong); border-radius: 14px; background: rgba(116,228,255,0.05); color: #d4e7f1; }
+    .status-note, .scope-note { margin-top: 18px; padding: 14px 18px; border: 1px solid var(--line-strong); border-radius: 14px; background: rgba(116,228,255,0.05); color: #d4e7f1; }
+    .scope-note p { margin: 6px 0 0; color: var(--muted); }
+    .questions { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .question { border: 1px solid var(--line); border-radius: 16px; background: var(--panel); padding: 18px 20px; }
+    .question summary { cursor: pointer; font-weight: 750; color: var(--text); }
+    .question summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+    .question p { margin: 12px 0 0; color: var(--muted); }
+    .question a { text-decoration-color: var(--accent); text-underline-offset: 3px; }
     .status-note strong { color: white; }
     .roadmap-item .state { margin-left: auto; font-size: 0.76rem; color: #9db2bd; white-space: nowrap; }
     .roadmap-item .state.active { color: var(--accent-3); }
@@ -440,7 +447,7 @@
       .roadmap { grid-template-columns: 1fr; }
       .hero { padding-top: 64px; }
       .terminal { max-width: 680px; }
-      .grid-3, .capability-grid { grid-template-columns: 1fr; }
+      .grid-3, .capability-grid, .questions { grid-template-columns: 1fr; }
       .section-head { align-items: start; flex-direction: column; }
     }
 
@@ -482,6 +489,7 @@
         <a class="nav-link" href="#why">Why IXP</a>
         <a class="nav-link" href="#capabilities">What works</a>
         <a class="nav-link" href="#roadmap">Roadmap</a>
+        <a class="nav-link" href="#questions">FAQ</a>
         <a class="button" href="https://github.com/ixp-tech" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
       </div>
     </nav>
@@ -492,7 +500,7 @@
           <div class="eyebrow"><span class="pulse"></span> Local development · v0.3 admin milestone</div>
           <h1><span class="gradient-text">Software for screens that live in the real world.</span></h1>
           <p class="hero-copy">
-            <strong>IXP</strong> is an early-stage digital signage operations platform. The working local prototype helps teams organize organizations, buildings, locations, and screens — with clear architecture and real-world operations in mind.
+            <strong>IXP</strong> is building the operating foundation for digital displays in real buildings. Its working local prototype connects organizations, buildings, locations and logical screens, with draft content metadata and status reporting. Playback and secure deployment come later.
           </p>
 
           <div class="actions">
@@ -500,7 +508,7 @@
             <a class="button" href="#capabilities">See what works today</a>
           </div>
 
-          <p class="microcopy">Not a hosted service or public product release. The core application repository is private while development continues.</p>
+          <p class="microcopy">Working code is being tested privately. IXP is not a hosted service, public download or production-ready product.</p>
         </div>
 
         <aside class="terminal" aria-label="Current IXP build status">
@@ -514,9 +522,9 @@
             <div class="terminal-line"><span>API</span><span>0.2.0.dev0 · FastAPI</span></div>
             <div class="terminal-line"><span>admin</span><span class="accent">v0.3 milestone in progress</span></div>
             <div class="terminal-line"><span>storage</span><span>PostgreSQL 17</span></div>
-            <div class="terminal-line"><span>working</span><span>inventory + draft metadata</span></div>
-            <div class="terminal-line"><span>next</span><span>content workflows</span></div>
-            <div class="terminal-line"><span>updated</span><span>November 2026</span></div>
+            <div class="terminal-line"><span>working</span><span>inventory · status · drafts</span></div>
+            <div class="terminal-line"><span>next</span><span>broader admin workflows</span></div>
+            <div class="terminal-line"><span>reviewed</span><span>14 Nov 2026</span></div>
           </div>
         </aside>
       </section>
@@ -526,7 +534,7 @@
         <div class="grid-3">
           <article class="card"><div class="number">01 / ORGANIZE</div><h3>Give every screen a home</h3><p>Create an organization, add buildings and locations, then register logical screens with their orientation and dimensions.</p></article>
           <article class="card"><div class="number">02 / INSPECT</div><h3>Follow the hierarchy</h3><p>Browse the React admin from organization to location. See configured screen records and navigate back through their parents.</p></article>
-          <article class="card"><div class="number">03 / UNDERSTAND</div><h3>Find inventory gaps</h3><p>Review screen counts by building and status, including empty buildings. Export CSV or JSON using the local reporting command.</p></article>
+          <article class="card"><div class="number">03 / UNDERSTAND</div><h3>Keep inventory useful</h3><p>Mark logical screens active, in maintenance, inactive or archived. Review building totals—including empty buildings—and export local CSV/JSON reports.</p></article>
         </div>
         <div class="scope-note"><strong>What these records mean</strong><p>“Active” describes a configured logical screen. It does not confirm that a device is online or playing content. The development API has no authentication; use fictional data on localhost.</p></div>
       </section>
@@ -573,7 +581,7 @@
             <ul>
               <li>PostgreSQL schema, fictional sample data, and database contract tests</li>
               <li>FastAPI creation and browsing for organizations, buildings, locations and logical screens</li>
-              <li>React/TypeScript admin interface for the inventory hierarchy</li>
+              <li>React/TypeScript admin interface for inventory creation, browsing and status-only logical-screen edits</li>
               <li>Organization-wide screen inventory and per-building status counts</li>
               <li>Organization-scoped draft content metadata, without uploading or playing media</li>
             </ul>
@@ -600,17 +608,30 @@
           <div class="roadmap-main">
             <div class="tag">Active milestone</div>
             <h3>v0.3 — Admin Interface</h3>
-            <p>The local interface creates and browses inventory and draft content metadata. The broader content workflow, security, and player capabilities remain under development.</p>
+            <p>The local interface creates and browses inventory, edits logical-screen status, and manages draft content metadata. Broader record editing, security and actual playback remain unfinished.</p>
             <p>Built on <strong>PostgreSQL 17, Python/FastAPI, React, and TypeScript</strong>. Tested in CI; no published product release yet.</p>
           </div>
           <div class="roadmap-list" aria-label="IXP development milestones">
             <div class="roadmap-item"><code>v0.1</code><span>Database foundation</span><span class="state">Implemented</span></div>
             <div class="roadmap-item"><code>v0.2</code><span>REST API foundation</span><span class="state">Implemented; unreleased</span></div>
-            <div class="roadmap-item"><code>v0.3</code><span>Admin inventory + content</span><span class="state active">In progress</span></div>
+            <div class="roadmap-item"><code>v0.3</code><span>Inventory + draft content admin</span><span class="state active">In progress</span></div>
             <div class="roadmap-item"><code>v0.4</code><span>Authentication + RBAC</span><span class="state">Planned</span></div>
             <div class="roadmap-item"><code>v0.5</code><span>Display player</span><span class="state">Planned</span></div>
             <div class="roadmap-item"><code>v0.6+</code><span>Scheduling, deployment, operations, pilot</span><span class="state">Planned</span></div>
           </div>
+        </div>
+      </section>
+
+      <section class="section" id="questions" aria-labelledby="questions-title">
+        <div class="section-head">
+          <div><div class="eyebrow">Questions worth answering</div><h2 id="questions-title">Clear expectations from day one.</h2></div>
+          <p>IXP is a developing project. These answers separate what's usable locally from what is still an ambition.</p>
+        </div>
+        <div class="questions">
+          <details class="question"><summary>Can I download and deploy IXP today?</summary><p>Not yet. The application repository is private and no supported installer, production release, or hosted service has been published. The current prototype is for fictional data on localhost only.</p></details>
+          <details class="question"><summary>Is IXP already open source?</summary><p>Open-source publication is the goal, but the application does not yet have public source or a published license. The <a href="https://github.com/jordaninjohnson/ixp.cool">website source is public</a>; that does not make the application available or licensed.</p></details>
+          <details class="question"><summary>Do screen statuses show whether displays are online?</summary><p>No. “Active,” “maintenance,” “inactive” and “archived” describe logical inventory records, not real-time device health or content playback. A real display player and monitoring are planned for later milestones.</p></details>
+          <details class="question"><summary>How can I follow or help shape the project?</summary><p>Read the <a href="https://ixp.cool/">project status</a> and explore the <a href="https://github.com/ixp-tech">GitHub organization</a>. An application contribution process will follow licensing and release decisions; there is no public application checkout yet.</p></details>
         </div>
       </section>
 
@@ -630,8 +651,8 @@
     </main>
 
     <footer>
-      <span>© <span id="year">2026</span> IXP LLC · Built in public.</span>
-      <span><a href="https://github.com/ixp-tech" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://github.com/jordaninjohnson" target="_blank" rel="noopener noreferrer">Builder</a></span>
+      <span>© <span id="year">2026</span> IXP project · Public progress updates.</span>
+      <span><a href="https://github.com/ixp-tech" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="https://github.com/jordaninjohnson/ixp.cool" target="_blank" rel="noopener noreferrer">Site source</a> · <a href="https://github.com/jordaninjohnson" target="_blank" rel="noopener noreferrer">Builder</a></span>
     </footer>
   </div>
 
